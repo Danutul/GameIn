@@ -7,7 +7,7 @@ Game::Game()
 	//setting up class members
 	m_mushroomTexture.loadFromFile("Mushroom.png");
 	m_mushroom.setTexture(m_mushroomTexture);
-	m_increment = sf::Vector2i(4, 4);
+	m_increment = sf::Vector2i(40, 40);
 }
 
 
@@ -59,14 +59,15 @@ void Game::Render()
 
 Window * Game::GetWindow()
 {
-	return nullptr;
+	return &m_window;
 }
 
 sf::Time Game::GetElapsed()
 {
-
+	return m_elapsed;
 }
 
 void Game::RestartClock()
 {
+	m_elapsed = m_clock.restart();
 }
