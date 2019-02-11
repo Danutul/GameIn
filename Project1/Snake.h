@@ -60,6 +60,6 @@ private:
 	int m_lives;
 	int m_score;
 	bool m_lost; //losing state
-	sf::RectangleShape m_bodyRerct;
+	sf::RectangleShape m_bodyRect;
 };
 
