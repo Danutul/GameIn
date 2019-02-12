@@ -82,8 +82,7 @@ void Snake::ToggleLost()
 void Snake::Extend()
 {
 	if (m_snakeBody.empty()) { return; }
-	SnakeSegment& tail_head =
-		m_snakeBody[m_snakeBody.size() - 1];
+	SnakeSegment& tail_head = m_snakeBody[m_snakeBody.size() - 1];
 
 	if (m_snakeBody.size() > 1) 
 	{

@@ -57,6 +57,11 @@ void Window::Update()
 	}
 }
 
+sf::RenderWindow* Window::GetRenderWindow() 
+{ 
+	return &m_window; 
+}
+
 void Window::ToggleFullScreen()
 {
 	m_isFullScreen = !m_isFullScreen;
