@@ -218,7 +218,8 @@ void Snake::Render(sf::RenderWindow & l_window)
 
 	m_bodyRect.setFillColor(sf::Color::Green);
 	for (auto itr = m_snakeBody.begin() + 1;
-		itr != m_snakeBody.end(); ++itr) {
+		itr != m_snakeBody.end(); ++itr) 
+	{
 		m_bodyRect.setPosition(itr->position.x * m_size,
 			itr->position.y * m_size);
 		l_window.draw(m_bodyRect);
