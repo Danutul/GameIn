@@ -73,7 +73,7 @@ void World::Update(Snake & l_player)
 
 int World::GetBlockSize()
 {
-	return 0;
+	return m_blockSize;
 }
 
 void World::Render(sf::RenderWindow & l_window)
