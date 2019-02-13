@@ -16,11 +16,11 @@ World::World(sf::Vector2u l_windSize)
 		m_bounds[i].setFillColor(sf::Color(150, 0, 0));
 		if (!((i + 1) % 2)) 
 		{
-			m_bounds[i].setSize(sf::Vector2f(m_windowSize.x, m_blockSize));
+			m_bounds[i].setSize(sf::Vector2f(m_windowSize.x, (float)m_blockSize));
 		}
 		else 
 		{
-			m_bounds[i].setSize(sf::Vector2f(m_blockSize, m_windowSize.y));
+			m_bounds[i].setSize(sf::Vector2f((float)m_blockSize, m_windowSize.y));
 		}
 		if (i < 2) 
 		{

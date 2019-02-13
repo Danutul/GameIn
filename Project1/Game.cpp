@@ -1,5 +1,5 @@
 #include "Game.h"
-
+#include <iostream>
 Game::Game()
 	:
 	m_window("Game", sf::Vector2u(800, 600)),
@@ -41,13 +41,16 @@ void Game::HandleInput()
 
 void Game::Update()
 {
+	
 	m_window.Update(); //update window events
 	float timestep = 1.0f / m_snake.GetSpeed();
+	
 	if (m_elapsed >= timestep)
 	{
 		m_snake.Tick();
 		m_world.Update(m_snake);
 		m_elapsed -= timestep;
+
 		if (m_snake.HasLost())
 		{
 			m_snake.Reset();
@@ -63,6 +66,7 @@ void Game::Render()
 	m_window.EndDraw(); // display
 }
 
+
 Window* Game::GetWindow()
 {
 	return &m_window;
@@ -75,5 +79,5 @@ sf::Time Game::GetElapsed()
 
 void Game::RestartClock()
 {
-	m_elapsed += m_clock.restart().asSeconds();
+	m_elapsed += m_clock.restart().asSeconds();	
 }

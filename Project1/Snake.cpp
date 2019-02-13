@@ -15,11 +15,11 @@ Snake::~Snake()
 void Snake::Reset()
 {
 	m_snakeBody.clear();
-
-	m_snakeBody.push_back(SnakeSegment(5, 7));
-	m_snakeBody.push_back(SnakeSegment(5, 6));
+	
 	m_snakeBody.push_back(SnakeSegment(5, 5));
-
+	m_snakeBody.push_back(SnakeSegment(6, 5));
+	m_snakeBody.push_back(SnakeSegment(7, 5));
+	
 	SetDirection(Direction::None);
 
 	m_speed = 15;
