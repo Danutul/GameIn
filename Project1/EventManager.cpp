@@ -104,6 +104,7 @@ void EventManager::HandleEvent(sf::Event & l_event)
 
 void EventManager::SetFocus(const bool & l_focus)
 {
+	m_hasFocus = l_focus;
 }
 
 void EventManager::Update()
