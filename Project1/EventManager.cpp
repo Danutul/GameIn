@@ -113,25 +113,19 @@ void EventManager::Update()
 	for (auto &b_itr : m_bindings) 
 	{
 		Binding* bind = b_itr.second;
-		for (auto &e_itr : bind->m_events) 
-		{
-			switch (e_itr.first) 
-			{
+		for (auto &e_itr : bind->m_events) {
+			switch (e_itr.first) {
 			case(EventType::Keyboard):
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(e_itr.second.m_code))) 
-				{
-					if (bind->m_details.m_keyCode != -1) 
-					{
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(e_itr.second.m_code))) {
+					if (bind->m_details.m_keyCode != -1) {
 						bind->m_details.m_keyCode = e_itr.second.m_code;
 					}
 					++(bind->c);
 				}
 				break;
 			case(EventType::Mouse):
-				if (sf::Mouse::isButtonPressed(sf::Mouse::Button(e_itr.second.m_code)))
-				{
-					if (bind->m_details.m_keyCode != -1) 
-					{
+				if (sf::Mouse::isButtonPressed(sf::Mouse::Button(e_itr.second.m_code))) {
+					if (bind->m_details.m_keyCode != -1) {
 						bind->m_details.m_keyCode = e_itr.second.m_code;
 					}
 					++(bind->c);
@@ -143,12 +137,24 @@ void EventManager::Update()
 			}
 		}
 
-		if (bind->m_events.size() == bind->c) 
-		{
-			auto callItr = m_callbacks.find(bind->m_name);
-			if (callItr != m_callbacks.end()) 
-			{
-				callItr->second(&bind->m_details);
+		if (bind->m_events.size() == bind->c) {
+			auto stateCallbacks = m_callbacks.find(m_currentState);
+			auto otherCallbacks = m_callbacks.find(StateType(0));
+
+			if (stateCallbacks != m_callbacks.end()) {
+				auto callItr = stateCallbacks->second.find(bind->m_name);
+				if (callItr != stateCallbacks->second.end()) {
+					// Pass in information about events.
+					callItr->second(&bind->m_details);
+				}
+			}
+
+			if (otherCallbacks != m_callbacks.end()) {
+				auto callItr = otherCallbacks->second.find(bind->m_name);
+				if (callItr != otherCallbacks->second.end()) {
+					// Pass in information about events.
+					callItr->second(&bind->m_details);
+				}
 			}
 		}
 		bind->c = 0;
