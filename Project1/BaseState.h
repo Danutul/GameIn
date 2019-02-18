@@ -23,6 +23,10 @@ public:
 	virtual void Update(const sf::Time& l_time) = 0;
 	virtual void Draw() = 0;
 
+	sf::View& GetView()
+	{
+		return m_view;
+	}
 	void SetTransparent(const bool& l_transparent) 
 	{ 
 		m_transparent = l_transparent; 
@@ -45,6 +49,7 @@ public:
 	}
 protected:
 	StateManager* m_stateMgr;
+	sf::View m_view;
 	bool m_transparent;
 	bool m_transcendent;
 };
