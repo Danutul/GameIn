@@ -8,6 +8,6 @@ int main()
 		game.HandleInput();
 		game.Update();
 		game.Render();
-		game.RestartClock();
+		game.LateUpdate();
 	}
 }

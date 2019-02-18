@@ -93,6 +93,7 @@ using Bindings = std::unordered_map<std::string, Binding*>;
 using CallbackContainer = std::unordered_map<std::string, std::function<void(EventDetails*)>>;
 enum class StateType;
 using Callbacks = std::unordered_map<StateType, CallbackContainer>;
+
 class EventManager
 {
 public:
@@ -101,7 +102,7 @@ public:
 
 	bool AddBinding(Binding *l_binding);
 	bool RemoveBinding(std::string l_name);
-
+	void SetCurrentState(StateType l_state);
 	void SetFocus(const bool& l_focus);
 
 	// Needs to be defined in the header!
@@ -130,6 +131,7 @@ public:
 	{
 		return (l_wind ? sf::Mouse::getPosition(*l_wind) : sf::Mouse::getPosition());
 	}
+
 private:
 	void LoadBindings();
 
