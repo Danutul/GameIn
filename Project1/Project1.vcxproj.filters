@@ -33,6 +33,9 @@
     <ClInclude Include="SharedContext.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="State_Intro.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window.cpp">
@@ -48,6 +51,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="StateManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Intro.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -4,6 +4,7 @@
 
 EventManager::EventManager()
 	:
+	m_currentState(StateType(0)),
 	m_hasFocus(true)
 {
 	LoadBindings();

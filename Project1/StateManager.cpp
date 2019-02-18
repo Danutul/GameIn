@@ -6,7 +6,7 @@ StateManager::StateManager(SharedContext* l_shared)
 	:
 	m_shared(l_shared)
 {
-	//RegisterState<State_Intro>(StateType::Intro);
+	RegisterState<State_Intro>(StateType::Intro);
 	//RegisterState<State_MainMenu>(StateType::MainMenu);
 	//RegisterState<State_Game>(StateType::Game);
 	//RegisterState<State_Paused>(StateType::Paused);
@@ -116,7 +116,7 @@ void StateManager::ProcessRequests()
 void StateManager::SwitchTo(const StateType & l_type)
 {
 	m_shared->m_eventManager->SetCurrentState(l_type);
-	for (auto itr = m_states.begin();itr != m_states.end(); ++itr)
+	for (auto itr = m_states.begin(); itr != m_states.end(); ++itr)
 	{
 		if (itr->first == l_type)
 		{
